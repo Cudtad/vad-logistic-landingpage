@@ -9,6 +9,15 @@ import {
   NavigationMenuLink,
   NavigationMenuViewport,
 } from "@/components/common/navigation-menu";
+import CustomSlider from "@/components/common/slider";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/common/tabs";
+import ProcessTabs from "@/components/home-page/ProcessTabs";
+import { ListTab } from "@/types";
 import { CubeIcon, HomeIcon, RocketIcon } from "@radix-ui/react-icons";
 // import NavigationMenuCustom from "@/components/common/navigation-menu";
 
@@ -35,6 +44,151 @@ const navigationLink = [
   },
   {
     trigger: "Contact",
+  },
+];
+
+const ListTabs: ListTab[] = [
+  {
+    title: "1. Call-Center",
+    value: "contact",
+  },
+  {
+    title: "2. Warehouse",
+    value: "warehouse",
+  },
+  {
+    title: "3. Weighing",
+    value: "weighing",
+  },
+  {
+    title: "4. Delivery",
+    value: "delivery",
+  },
+];
+
+const ListContents = [
+  {
+    value: "contact",
+    title:
+      "1 I've tried every analytics product on the market and when I came across.",
+    description: (
+      <div className="space-y-5">
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+      </div>
+    ),
+    imageFeature: "/assets/images/home/tabs_contact.webp",
+  },
+  {
+    value: "warehouse",
+    title:
+      "2 I've tried every analytics product on the market and Optimization",
+    description: (
+      <div className="space-y-5">
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+      </div>
+    ),
+    imageFeature: "/assets/images/home/tabs_warehouse.webp",
+  },
+  {
+    value: "weighing",
+    title:
+      "3 I've tried every analytics product on the market and when I came across.",
+    description: (
+      <div className="space-y-5">
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+      </div>
+    ),
+    imageFeature: "/assets/images/home/tabs_weighing.webp",
+  },
+  {
+    value: "delivery",
+    title:
+      "4 I've tried every analytics product on the market and when I came across.",
+    description: (
+      <div className="space-y-5">
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+        <p>
+          Search engine optimization professional’s research keywords, which
+          they use to achieve better rankings in search engines. Our consultants
+          will start by getting to know you and your business. We’ll make every
+          effort to get an understanding of your objectives, products and
+          production.
+        </p>
+      </div>
+    ),
+    imageFeature: "/assets/images/home/tabs_delivery.webp",
+  },
+];
+
+const slides = [
+  {
+    id: 1,
+    content: (
+      <div className="bg-red-500 h-48 flex items-center justify-center">
+        Slide 1
+      </div>
+    ),
+  },
+  {
+    id: 2,
+    content: (
+      <div className="bg-blue-500 h-48 flex items-center justify-center">
+        Slide 2
+      </div>
+    ),
+  },
+  {
+    id: 3,
+    content: (
+      <div className="bg-green-500 h-48 flex items-center justify-center">
+        Slide 3
+      </div>
+    ),
   },
 ];
 
@@ -75,6 +229,9 @@ export default function Home() {
           <NavigationMenuViewport />
         </div>
       </NavigationMenuRoot>
+
+      <ProcessTabs listTab={ListTabs} listContent={ListContents} />
+      <CustomSlider slides={slides} />
     </main>
   );
 }

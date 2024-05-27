@@ -28,7 +28,7 @@ const colors = {
   secondary: {
     darkest: '#041418',
     dark: '#AE8F4D',
-    DEFAULT: '#C0A161',
+    DEFAULT: '#aba5a5',
     light: '#D8B774',
     lightest: '#fafbfc',
   },

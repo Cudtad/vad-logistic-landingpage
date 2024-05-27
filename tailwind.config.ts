@@ -37,7 +37,7 @@ module.exports = {
         "mb-large": "32px",
       },
       boxShadow: {
-        box: "0 0px 20px 0px rgba(0, 0, 0, 0.06)",
+        box: "0px 35px 100px 0px rgba(171, 181, 189, 0.35)",
       },
     },
 
