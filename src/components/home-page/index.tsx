@@ -6,6 +6,8 @@ import TelegramIcon from "../common/svg-icons/TelegramIcon";
 import CardService from "./CardService";
 import ProcessTabs from "./ProcessTabs";
 import CustomSlider from "../common/slider";
+import SliderOurMeetTeam from "../common/slider-our-meet-team";
+import Brand from "./Brand";
 
 const listService = [
   {
@@ -213,6 +215,41 @@ const slides = [
   // },
 ];
 
+const SlideOurMeetTeam = [
+  {
+    id: 1,
+    content: {
+      name: "Darian Cloward",
+      role: "Assistant Manager",
+      imageAvatar: "/assets/images/home/meet_our_team.webp",
+    },
+  },
+  {
+    id: 2,
+    content: {
+      name: "Nirob Khan",
+      role: "HR Manager",
+      imageAvatar: "/assets/images/home/meet_our_team.webp",
+    },
+  },
+  {
+    id: 3,
+    content: {
+      name: "Alifa Yeasmin",
+      role: "CEO & Consultant",
+      imageAvatar: "/assets/images/home/meet_our_team.webp",
+    },
+  },
+  {
+    id: 4,
+    content: {
+      name: "Sabrina Brooks",
+      role: "CEO & Co-Founder",
+      imageAvatar: "/assets/images/home/meet_our_team.webp",
+    },
+  },
+];
+
 export default function HomePage() {
   return (
     <div>
@@ -313,6 +350,13 @@ export default function HomePage() {
       <div className="pt-32 pb-16 mx-auto md:max-w-screen-xl">
         <p className="text-base font-medium text-primary">TRUSTED EXPERTS</p>
         <h1 className="text-[44px] font-black">Meet Our Team</h1>
+
+        <SliderOurMeetTeam slides={SlideOurMeetTeam} />
+      </div>
+      <div className="bg-[#f8f8f8]">
+        <div className="pt-32 pb-16 mx-auto md:max-w-screen-xl">
+          <Brand />
+        </div>
       </div>
     </div>
   );

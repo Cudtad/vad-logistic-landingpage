@@ -37,8 +37,8 @@ const colors = {
     800: '#1C1C1E',
     200: '#ebebeb',
     300: '#f2f2f2',
-    scroll: '#c6c6c6',
-    DEFAULT: '#888888',
+    footer: '#262626',
+    DEFAULT: '#bdbaba',
   },
   error: {
     100: '#DC304F',
