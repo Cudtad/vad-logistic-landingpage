@@ -29,7 +29,7 @@ export default function ProcessTabs({
   return (
     <Tabs defaultValue={tabs} onValueChange={(value) => setTabs(value)} className="w-full">
       <div className="flex flex-col lg:flex-row items-start justify-between lg:border-b lg:border-divider-secondary bg-transparent">
-        <TabsList className="flex gap-x-52">
+        <TabsList className="grid grid-cols-2 gap-x-12 md:grid-cols-4 md:gap-x-52">
           {listTab.map((tab) => (
             <TabsTrigger
               className={clsx(
@@ -54,10 +54,10 @@ export default function ProcessTabs({
       </div>
       {listContent.map((content) => (
         <TabsContent key={content.value} value={content.value}>
-          <div className="grid grid-cols-2 gap-x-5 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-2 py-5 md:py-10">
             <div>
-              <h1 className="text-2xl font-bold">{content.title}</h1>
-              <div className="mt-8 text-base font-medium text-secondary">{content.description}</div>
+              <h1 className="text-lg md:text-2xl font-bold">{content.title}</h1>
+              <div className="mt-4 md:mt-8 text-sm md:text-base font-medium text-secondary">{content.description}</div>
             </div>
             <div>
               <img src={content.imageFeature} alt="Image content process" />

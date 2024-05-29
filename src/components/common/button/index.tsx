@@ -34,9 +34,7 @@ const Button = forwardRef(
           variant === "primary" && !disabled ? classPrimary : "",
           "flex items-center justify-center outline-none disabled:cursor-not-allowed",
           {
-            "h-6 rounded-[4px] !px-3 text-xs leading-4": size === "xs",
-            "h-8 rounded-[6px] text-xs leading-4": size === "sm",
-            "h-10 rounded-[8px] text-base leading-5": size === "md",
+            "h-8 rounded-[4px] text-xs leading-4 px-6 py-2 w-max": size === "sm",
             "h-12 rounded text-base leading-5 px-10 py-2": size === "lg",
             "bg-primary text-white bg-[length:200%] bg-left hover:bg-black":
               variant === "primary" && !disabled,

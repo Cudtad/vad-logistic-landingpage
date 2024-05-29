@@ -23,6 +23,7 @@ const SliderOurMeetTeam: React.FC<CustomSliderProps> = ({ slides }) => {
   const [translateX, setTranslateX] = useState<number>(0);
   const [transition, setTransition] = useState<boolean>(true);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [slidesToShow, setSlidesToShow] = useState<number>(1);
 
   const slideCount = slides.length;
 
@@ -96,6 +97,24 @@ const SliderOurMeetTeam: React.FC<CustomSliderProps> = ({ slides }) => {
     };
   }, []);
 
+  // Adjust slides to show based on screen size
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(1);
+      } else {
+        setSlidesToShow(3); // Adjust this number based on your preference for desktop view
+      }
+    };
+
+    updateSlidesToShow();
+    window.addEventListener("resize", updateSlidesToShow);
+
+    return () => {
+      window.removeEventListener("resize", updateSlidesToShow);
+    };
+  }, []);
+
   return (
     <div
       className="relative w-full overflow-hidden"
@@ -111,7 +130,7 @@ const SliderOurMeetTeam: React.FC<CustomSliderProps> = ({ slides }) => {
         onTransitionEnd={handleTransitionEnd}
         style={{
           transform: `translateX(calc(-${
-            currentIndex * 33.33
+            currentIndex * (100 / slidesToShow)
           }% + ${translateX}px))`,
         }}
       >
@@ -119,7 +138,7 @@ const SliderOurMeetTeam: React.FC<CustomSliderProps> = ({ slides }) => {
           <div
             key={index}
             className="box-border hover:cursor-pointer rounded"
-            style={{ flex: "0 0 33.33%" }}
+            style={{ flex: `0 0 ${100 / slidesToShow}%` }}
           >
             <div>
               <img src={slide.content.imageAvatar} alt="Avatar" />

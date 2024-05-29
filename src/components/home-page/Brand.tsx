@@ -59,14 +59,14 @@ const ListBrand = [
 
 export default function Brand() {
   return (
-    <div>
+    <div className="py-8 md:py-20">
       {ListBrand.length > 0 ? (
         <div className="w-full overflow-hidden" key={"bear"}>
           <div className={styles["loop-looper-ltr"]}>
             <div className="flex items-center gap-x-20">
               {ListBrand.map((brand) => (
                 <div key={brand.id} className="hover:cursor-pointer">
-                  <img src={brand.imageBrand} alt="Image Brand" />
+                  <img className="scale-75 md:scale-100" src={brand.imageBrand} alt="Image Brand" />
                 </div>
               ))}
             </div>

@@ -23,6 +23,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ slides }) => {
   const [startX, setStartX] = useState<number>(0);
   const [translateX, setTranslateX] = useState<number>(0);
   const [transition, setTransition] = useState<boolean>(true);
+  const [slidesToShow, setSlidesToShow] = useState<number>(1);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const slideCount = slides.length;
@@ -95,10 +96,28 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ slides }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 12000); // Slide every 15 seconds
+    }, 12000); // Slide every 12 seconds
 
     return () => {
       clearInterval(interval);
+    };
+  }, []);
+
+  // Adjust slides to show based on screen size
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(1);
+      } else {
+        setSlidesToShow(3); // Adjust this number based on your preference for desktop view
+      }
+    };
+
+    updateSlidesToShow();
+    window.addEventListener("resize", updateSlidesToShow);
+
+    return () => {
+      window.removeEventListener("resize", updateSlidesToShow);
     };
   }, []);
 
@@ -111,20 +130,20 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ slides }) => {
       ref={sliderRef}
     >
       <div
-        className={`flex gap-x-8 py-4 bg-transparent ${
+        className={`flex md:gap-x-8 md:py-4 bg-transparent ${
           transition ? "transition-transform duration-500 ease-in-out" : ""
         }`}
         style={{
           transform: `translateX(calc(-${
-            currentIndex * 40
+            currentIndex * (100 / slidesToShow)
           }% + ${translateX}px))`,
         }}
       >
         {slidesWithClones.map((slide, index) => (
           <div
             key={index}
-            className="box-border hover:cursor-pointer bg-white shadow-lg p-12 rounded"
-            style={{ flex: "0 0 40%" }}
+            className="box-border hover:cursor-pointer bg-white border md:border-none md:shadow-lg p-6 md:p-12 rounded"
+            style={{ flex: `0 0 ${100 / slidesToShow}%` }}
           >
             <div>
               <p className="text-base font-medium text-secondary">{`"${slide.content.comment}"`}</p>

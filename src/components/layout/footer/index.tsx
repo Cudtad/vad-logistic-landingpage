@@ -1,3 +1,5 @@
+import Button from "@/components/common/button";
+import Input from "@/components/common/input";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,9 +24,9 @@ const QuickLink = [
 
 export default function Footer() {
   return (
-    <div className="bg-gray-footer py-20 text-white">
+    <div className="bg-gray-footer pt-10 md:pt-20 pb-4 px-4 md:px-0 text-white">
       <div className="mx-auto md:max-w-screen-xl">
-        <div className="grid grid-cols-4 gap-x-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-12">
           <div>
             <div className="flex items-center gap-x-2">
               <Image
@@ -42,11 +44,15 @@ export default function Footer() {
               passionate consulting team is hands-on to help conquer anything
             </p>
           </div>
-          <div>
+          <div className="md:pl-8">
             <h1 className=" text-lg font-bold">Quick Links</h1>
             <div className="flex flex-col mt-2 text-gray gap-y-1">
               {QuickLink.map((item) => (
-                <Link key={item.link} href={item.link}>
+                <Link
+                  className="hover:text-primary"
+                  key={item.link}
+                  href={item.link}
+                >
                   {item.name}
                 </Link>
               ))}
@@ -55,12 +61,30 @@ export default function Footer() {
           <div>
             <h1 className=" text-lg font-bold">Contact</h1>
             <div className="mt-2 text-gray space-y-1">
-              <p >Dai Mo Street, Nam Tu Liem District, Hanoi</p>
+              <p>Dai Mo Street, Nam Tu Liem District, Hanoi</p>
               <p className="underline">adlogisticglobal@gmail.com</p>
               <p>0984053166</p>
             </div>
           </div>
+          <div>
+            <h1 className=" text-lg font-bold">Newsletter</h1>
+            <p className="text-base font-medium text-gray mt-2">
+              We are not spammers.!
+            </p>
+            <div className="mt-8">
+              <Input placeholder="Email Address" size={"lg"} />
+              <p className="text-base font-medium text-primary mt-4">
+                Please complete this required field.
+              </p>
+              <Button className="font-bold mt-8" size={"lg"}>
+                SUBSCRIBE
+              </Button>
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="text-sm font-semibold text-center mt-20">
+        © 2021 <span className="text-primary">AD Logistic</span> Made with by <span className="text-primary">Cudtad</span>
       </div>
     </div>
   );

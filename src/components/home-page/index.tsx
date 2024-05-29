@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 
 import { ListTab } from "@/types";
 import Button from "../common/button";
@@ -8,6 +9,7 @@ import ProcessTabs from "./ProcessTabs";
 import CustomSlider from "../common/slider";
 import SliderOurMeetTeam from "../common/slider-our-meet-team";
 import Brand from "./Brand";
+import useMobile from "@/hooks/useMobile";
 
 const listService = [
   {
@@ -251,28 +253,29 @@ const SlideOurMeetTeam = [
 ];
 
 export default function HomePage() {
+  const isMobile = useMobile();
   return (
     <div>
       <div className="w-full h-screen relative overflow-hidden">
         <img src="/assets/images/banner_ad_logistic.webp" alt="Banner" />
         {/* overlay */}
         <div className=" absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 z-10"></div>
-        <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-white text-6xl font-poppins font-black leading-[80px] space-y-6">
-          <h1 className="text-center">
+        <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 space-y-6">
+          <h1 className="text-center text-white text-2xl md:text-6xl font-poppins font-black leading-10 md:leading-[80px] w-max">
             Booking Our Passage <br /> To The Future
           </h1>
           <div className="flex item-center justify-center">
-            <Button variant="primary" size="lg">
+            <Button variant="primary" size={isMobile ? "sm" : "lg"}>
               Booking now
             </Button>
-            <Button prevIcon={<TelegramIcon />} variant="chip" size="lg">
+            <Button prevIcon={<TelegramIcon />} variant="chip" size={isMobile ? "sm" : "lg"}>
               Join us on Telegram
             </Button>
           </div>
         </div>
       </div>
-      <div className="pt-32 pb-16">
-        <div className="mx-auto md:max-w-screen-xl grid grid-cols-3 gap-x-10 gap-y-16">
+      <div className="py-10 md:pt-32 md:pb-16 px-4 md:px-0">
+        <div className="mx-auto md:max-w-screen-xl grid grid-cols-1 md:grid-cols-3 md:gap-x-10 gap-y-16">
           {listService.map((item) => {
             return (
               <CardService
@@ -285,8 +288,8 @@ export default function HomePage() {
           })}
         </div>
       </div>
-      <div className="pt-32 pb-16 mx-auto md:max-w-screen-xl">
-        <div className="grid grid-cols-2">
+      <div className="py-10 md:pt-32 px-4 md:px-0 md:pb-16 mx-auto md:max-w-screen-xl">
+        <div className="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-y-0">
           <div>
             <img
               src="/assets/images/about_us_ad_logistic.webp"
@@ -294,14 +297,14 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <p className="text-primary text-base font-medium">
+            <p className="text-primary text-sm md:text-base font-medium">
               INTERNATIONAL LOGISTICS
             </p>
-            <h1 className=" text-4xl font-black mt-2">
+            <h1 className="text-2xl md:text-4xl font-black mt-2">
               AD Logistic is a logistics vehicula magna at magna is honcu.quis
               lobortis elit necyer augue.
             </h1>
-            <p className="text-secondary text-base font-medium mt-8">
+            <p className="text-secondary text-sm md:text-base font-medium mt-4 md:mt-8">
               Having worked with hundreds of companies from small nice other
               businesses to Fortune 1000’s, we understand your pain points. We
               also understand we aren’t the right agency for every business. We
@@ -309,7 +312,7 @@ export default function HomePage() {
               and bus.
             </p>
             <Button
-              className="mt-14 text-sm font-semibold"
+              className="mt-8 md:mt-14 text-sm font-semibold"
               variant="primary"
               size="lg"
             >
@@ -318,43 +321,45 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="pt-32 mx-auto md:max-w-screen-xl">
+      <div className="py-10 md:pt-32 px-4 md:px-0 mx-auto md:max-w-screen-xl">
         <div>
-          <p className="text-base font-medium text-primary text-center">
+          <p className="text-sm md:text-base font-medium text-primary text-center">
             HOW IT WORKS
           </p>
-          <h1 className=" text-[44px] font-black text-center mt-2">
+          <h1 className="text-2xl md:text-[44px] font-black text-center mt-2">
             Our Process
           </h1>
         </div>
-        <div className="mt-10">
+        <div className="mt-8 md:mt-10">
           <ProcessTabs listTab={ListTabs} listContent={ListContents} />
         </div>
       </div>
-      <div className="relative h-[728px] overflow-hidden mt-10 mb-16 ">
-        <img
-          className="absolute -top-1/3 -z-10"
-          src="/assets/images/home/bg-testimonials.png"
-          alt="Background Testimonials"
-        />
-        <div className="mx-auto md:max-w-screen-xl pt-32">
+      <div className="relative md:h-[728px] overflow-hidden px-4 md:px-0 mt-10 mb-16 ">
+        {!isMobile && (
+          <img
+            className="absolute -top-1/3 -z-10"
+            src="/assets/images/home/bg-testimonials.png"
+            alt="Background Testimonials"
+          />
+        )}
+        <div className="mx-auto md:max-w-screen-xl md:pt-32">
           <div>
-            <p className="text-base font-medium text-primary">TESTIMONIALS</p>
-            <h1 className=" text-[44px] font-black">Trusted From My Clients</h1>
+            <p className="text-sm md:text-base font-medium text-primary">TESTIMONIALS</p>
+            <h1 className="text-2xl md:text-[44px] font-black mt-2 md:mt-4">Trusted From My Clients</h1>
           </div>
-          <div className="mt-20">
+          <div className="mt-5 md:mt-20">
             <CustomSlider slides={slides} />
           </div>
         </div>
       </div>
-      <div className="pt-32 pb-16 mx-auto md:max-w-screen-xl">
-        <p className="text-base font-medium text-primary">TRUSTED EXPERTS</p>
-        <h1 className="text-[44px] font-black">Meet Our Team</h1>
+      <div className="py-10 md:pt-32 px-4 md:px-0 mx-auto md:max-w-screen-xl">
+        <p className="text-sm md:text-base font-medium text-primary">TRUSTED EXPERTS</p>
+        <h1 className="text-2xl md:text-[44px] font-black mt-2 md:mt-4 md:mb-8">Meet Our Team</h1>
 
         <SliderOurMeetTeam slides={SlideOurMeetTeam} />
       </div>
-      <div className="bg-[#f8f8f8]">
-        <div className="pt-32 pb-16 mx-auto md:max-w-screen-xl">
+      <div className="pt-5 md:pt-10">
+        <div className="bg-[#f8f8f8]">
           <Brand />
         </div>
       </div>
