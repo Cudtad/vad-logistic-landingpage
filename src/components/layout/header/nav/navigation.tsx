@@ -34,14 +34,17 @@ const navigationLink = [
       {
         title: "Vận chuyển 2 chiều Việt Nam & quốc tế",
         icon: <RocketIcon />,
+        nav: "/service/delivery",
       },
       {
         title: "Giải pháp Fullfillment cho các doanh nghiệp",
         icon: <CubeIcon />,
+        nav: "/service/fullfillment",
       },
       {
         title: "Cho thuê kho bãi, nhân sự tại 200 quốc gia",
         icon: <HomeIcon />,
+        nav: "/service/warehouse",
       },
     ],
   },
@@ -58,7 +61,6 @@ type Props = {
 };
 
 export default function Navigation({ changeText }: Props) {
-  const [isActive, setIsActive] = useState<string>("");
   const isMobile = useMobile();
   const [isDrawer, setIsDrawer] = useState<boolean>(false);
 
@@ -100,7 +102,8 @@ export default function Navigation({ changeText }: Props) {
 
   return (
     <div className="w-full flex items-center justify-between">
-      <button
+      <Link
+        href={"/"}
         onClick={() => {
           window.scrollTo({
             top: 0,
@@ -118,60 +121,62 @@ export default function Navigation({ changeText }: Props) {
         <span className="text-xl md:text-4xl font-medium font-titanOne text-primary bg-gradient-to-r from-[#9d6d16] to-[#603000] text-transparent bg-clip-text">
           AD LOGISTIC
         </span>
-      </button>
-      {isMobile ? (
-        <div className="pr-4">
-          <Button size="xs" variant="chip" onClick={handleClick}>
-            <RowsIcon />
-          </Button>
-        </div>
-      ) : (
-        <div>
-          <NavigationMenuRoot>
-            <NavigationMenuList className=" gap-x-20">
-              {navigationLink.map((item) => {
-                return (
-                  <NavigationMenuItem key={item.trigger}>
-                    {item?.content ? (
-                      <>
-                        <NavigationMenuTrigger
+      </Link>
+      {!!isMobile &&
+        (!!isMobile ? (
+          <div className="pr-4">
+            <Button size="xs" variant="chip" onClick={handleClick}>
+              <RowsIcon />
+            </Button>
+          </div>
+        ) : (
+          <div>
+            <NavigationMenuRoot>
+              <NavigationMenuList className=" gap-x-20">
+                {navigationLink.map((item) => {
+                  return (
+                    <NavigationMenuItem key={item.trigger}>
+                      {item?.content ? (
+                        <>
+                          <NavigationMenuTrigger
+                            className={clsx("text-lg font-bold0", {
+                              "text-white": !changeText,
+                              "text-black": changeText,
+                            })}
+                          >
+                            {item.trigger}
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                            {item?.content.map((item) => (
+                              <ListItem
+                                nav={item.nav}
+                                key={item.title}
+                                title={item.title}
+                                icon={item.icon}
+                              />
+                            ))}
+                          </NavigationMenuContent>
+                        </>
+                      ) : (
+                        <NavigationMenuLink
                           className={clsx("text-lg font-bold0", {
                             "text-white": !changeText,
                             "text-black": changeText,
                           })}
                         >
                           {item.trigger}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          {item?.content.map((item) => (
-                            <ListItem
-                              key={item.title}
-                              title={item.title}
-                              icon={item.icon}
-                            />
-                          ))}
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <NavigationMenuLink
-                        className={clsx("text-lg font-bold0", {
-                          "text-white": !changeText,
-                          "text-black": changeText,
-                        })}
-                      >
-                        {item.trigger}
-                      </NavigationMenuLink>
-                    )}
-                  </NavigationMenuItem>
-                );
-              })}
-            </NavigationMenuList>
-            <div className="absolute top-full left-0 flex w-full justify-center">
-              <NavigationMenuViewport />
-            </div>
-          </NavigationMenuRoot>
-        </div>
-      )}
+                        </NavigationMenuLink>
+                      )}
+                    </NavigationMenuItem>
+                  );
+                })}
+              </NavigationMenuList>
+              <div className="absolute top-full left-0 flex w-full justify-center">
+                <NavigationMenuViewport />
+              </div>
+            </NavigationMenuRoot>
+          </div>
+        ))}
       <Drawer isOpen={isDrawer} onClose={handleClose}>
         <div className="flex flex-col gap-y-5 text-base font-semibold">
           {navigationLink.map((item) => {
@@ -181,8 +186,8 @@ export default function Navigation({ changeText }: Props) {
                   {item.content.map((link) => (
                     <Link
                       className="text-xs font-medium hover:cursor-pointer hover:text-primary flex item-center gap-x-2"
-                      key={link.title}
-                      href={link.title}
+                      key={link.nav}
+                      href={link.nav}
                     >
                       {link.icon}
                       <span>{link.title}</span>

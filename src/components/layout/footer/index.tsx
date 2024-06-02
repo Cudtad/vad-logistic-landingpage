@@ -1,5 +1,8 @@
+"use client"
+
 import Button from "@/components/common/button";
 import Input from "@/components/common/input";
+import useMobile from "@/hooks/useMobile";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,6 +26,7 @@ const QuickLink = [
 ];
 
 export default function Footer() {
+  const isMobile = useMobile();
   return (
     <div className="bg-gray-footer pt-10 md:pt-20 pb-4 px-4 md:px-0 text-white">
       <div className="mx-auto md:max-w-screen-xl">
@@ -63,7 +67,7 @@ export default function Footer() {
             <div className="mt-2 text-gray space-y-1">
               <p>Dai Mo Street, Nam Tu Liem District, Hanoi</p>
               <p className="underline">adlogisticglobal@gmail.com</p>
-              <p>0984053166</p>
+              <div>0984053166</div>
             </div>
           </div>
           <div>
@@ -73,10 +77,10 @@ export default function Footer() {
             </p>
             <div className="mt-8">
               <Input placeholder="Email Address" size={"lg"} />
-              <p className="text-base font-medium text-primary mt-4">
+              <p className="textsm md:text-base font-medium text-primary mt-4">
                 Please complete this required field.
               </p>
-              <Button className="font-bold mt-8" size={"lg"}>
+              <Button className="font-bold mt-8" size={isMobile ? "sm" : "lg"}>
                 SUBSCRIBE
               </Button>
             </div>
@@ -84,7 +88,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-sm font-semibold text-center mt-20">
-        © 2021 <span className="text-primary">AD Logistic</span> Made with by <span className="text-primary">Cudtad</span>
+        © 2021 <span className="text-primary">AD Logistic</span> Made with by{" "}
+        <span className="text-primary">Cudtad</span>
       </div>
     </div>
   );

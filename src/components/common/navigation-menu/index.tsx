@@ -132,15 +132,17 @@ const ListItem = React.forwardRef(
       className,
       title,
       icon,
+      nav,
       ...props
     }: {
       className?: string;
       title: string;
       icon: ReactNode;
+      nav: string
     },
     forwardedRef
   ) => (
-    <Link href={"/logistic"}>
+    <Link href={nav}>
       <NavigationMenuLink asChild>
         <a {...props}>
           <div className="flex item-center gap-x-3 hover:cursor-pointer hover:text-primary">

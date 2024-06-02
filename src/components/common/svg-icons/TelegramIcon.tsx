@@ -4,7 +4,7 @@ export default function TelegramIcon ({ size = 24, ...props }: IconSvg) {
     return (
         <svg {...props} width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#smfmq1ynoa)">
-            <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12z" fill="url(#ys6i1gqlob)" />
+            <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12z" />
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
