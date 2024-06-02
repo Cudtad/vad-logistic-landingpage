@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Open_Sans, Titan_One } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import Layout from "@/components/layout/inex";
+import Layout from "@/components/layout";
 
 const poppins = Poppins({
   subsets: ["latin"],

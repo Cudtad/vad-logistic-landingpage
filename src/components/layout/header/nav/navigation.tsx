@@ -63,6 +63,11 @@ type Props = {
 export default function Navigation({ changeText }: Props) {
   const isMobile = useMobile();
   const [isDrawer, setIsDrawer] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleClick = () => {
     setIsDrawer(true);
@@ -71,34 +76,6 @@ export default function Navigation({ changeText }: Props) {
   const handleClose = () => {
     setIsDrawer(false);
   };
-
-  // const handleNavLinkClick = (key: string) => {
-  //   setIsActive(key);
-  //   if (key === "couple") {
-  //     window.scrollTo({
-  //       top: isMobile ? 620 : 700,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  //   if (key === "story") {
-  //     window.scrollTo({
-  //       top: isMobile ? 2250 : 1900,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  //   if (key === "sweetMemory") {
-  //     window.scrollTo({
-  //       top: isMobile ? 5000 : 4300,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  //   if (key === "ourWedding") {
-  //     window.scrollTo({
-  //       top: isMobile ? 6800 : 5900,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  // };
 
   return (
     <div className="w-full flex items-center justify-between">
@@ -122,14 +99,14 @@ export default function Navigation({ changeText }: Props) {
           AD LOGISTIC
         </span>
       </Link>
-      {!!isMobile &&
-        (!!isMobile ? (
-          <div className="pr-4">
-            <Button size="xs" variant="chip" onClick={handleClick}>
-              <RowsIcon />
-            </Button>
-          </div>
-        ) : (
+      {isMobile ? (
+        <div className="pr-4">
+          <Button size="xs" variant="chip" onClick={handleClick}>
+            <RowsIcon />
+          </Button>
+        </div>
+      ) : (
+        isClient && (
           <div>
             <NavigationMenuRoot>
               <NavigationMenuList className=" gap-x-20">
@@ -176,7 +153,8 @@ export default function Navigation({ changeText }: Props) {
               </div>
             </NavigationMenuRoot>
           </div>
-        ))}
+        )
+      )}
       <Drawer isOpen={isDrawer} onClose={handleClose}>
         <div className="flex flex-col gap-y-5 text-base font-semibold">
           {navigationLink.map((item) => {

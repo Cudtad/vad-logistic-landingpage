@@ -16,7 +16,6 @@ module.exports = {
       xl: "1200px",
       "2xl": "1440px",
     },
-    colors,
     borderRadius: {
       none: 0,
       DEFAULT: "8px",
@@ -27,6 +26,7 @@ module.exports = {
       full: "9999px",
     },
     extend: {
+      colors,
       fontFamily: {
         poppins: ["var(--font-poppins)"],
         openSan: ["var(--font-openSan)"],
