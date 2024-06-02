@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import clsx from "clsx";
 import useMobile from "@/hooks/useMobile";
@@ -18,6 +18,7 @@ import {
   NavigationMenuViewport,
 } from "@/components/common/navigation-menu";
 import {
+  BackpackIcon,
   CubeIcon,
   HomeIcon,
   RocketIcon,
@@ -46,13 +47,20 @@ const navigationLink = [
         icon: <HomeIcon />,
         nav: "/service/warehouse",
       },
+      {
+        title: "Mua hàng hộ",
+        icon: <BackpackIcon />,
+        nav: "/service/order",
+      },
     ],
   },
   {
     trigger: "About",
+    nav: "/about",
   },
   {
     trigger: "Contact",
+    nav: "/contact",
   },
 ];
 
@@ -65,6 +73,8 @@ export default function Navigation({ changeText }: Props) {
   const [isDrawer, setIsDrawer] = useState<boolean>(false);
   const [isClient, setIsClient] = useState<boolean>(false);
 
+  const router = useRouter();
+
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -75,6 +85,10 @@ export default function Navigation({ changeText }: Props) {
 
   const handleClose = () => {
     setIsDrawer(false);
+  };
+
+  const handleNavClick = (nav: string) => {
+    router.push(nav);
   };
 
   return (
@@ -140,6 +154,7 @@ export default function Navigation({ changeText }: Props) {
                             "text-white": !changeText,
                             "text-black": changeText,
                           })}
+                          onClick={() => handleNavClick(item.nav || "/")}
                         >
                           {item.trigger}
                         </NavigationMenuLink>
@@ -175,7 +190,7 @@ export default function Navigation({ changeText }: Props) {
               );
             }
             return (
-              <Link key={item.trigger} href={item.trigger}>
+              <Link key={item.trigger} href={item.nav || "/"}>
                 {item.trigger}
               </Link>
             );

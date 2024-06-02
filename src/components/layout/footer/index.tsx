@@ -65,9 +65,9 @@ export default function Footer() {
           <div>
             <h1 className=" text-lg font-bold">Contact</h1>
             <div className="mt-2 text-gray space-y-1">
-              <p>Dai Mo Street, Nam Tu Liem District, Hanoi</p>
-              <p className="underline">adlogisticglobal@gmail.com</p>
-              <div>0984053166</div>
+              <p>Address: Dai Mo Street, Nam Tu Liem District, Ha Noi</p>
+              <p>Email: adlogisticglobal@gmail.com</p>
+              <div className=" no-underline">Phone: 0984053166</div>
             </div>
           </div>
           <div>
@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-sm font-semibold text-center mt-20">
-        © 2021 <span className="text-primary">AD Logistic</span> Made with by{" "}
+        © 2024 <span className="text-primary">AD Logistic</span> Made with by{" "}
         <span className="text-primary">Cudtad</span>
       </div>
     </div>
