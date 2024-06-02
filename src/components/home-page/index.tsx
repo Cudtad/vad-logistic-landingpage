@@ -257,7 +257,7 @@ export default function HomePage() {
   return (
     <div>
       <div className="w-full h-screen relative overflow-hidden">
-        <img className="aspect-[10/22]" src={isMobile ? "/assets/images/banner_ad_logistic_mobile.jpg" : "/assets/images/banner_ad_logistic.webp"} alt="Banner" />
+        <img className="aspect-[10/22] md:aspect-auto" src={isMobile ? "/assets/images/banner_ad_logistic_mobile.jpg" : "/assets/images/banner_ad_logistic.webp"} alt="Banner" />
         {/* overlay */}
         <div className=" absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 z-10"></div>
         <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 space-y-6">
