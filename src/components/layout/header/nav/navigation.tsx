@@ -89,6 +89,7 @@ export default function Navigation({ changeText }: Props) {
 
   const handleNavClick = (nav: string) => {
     router.push(nav);
+    setIsDrawer(false);
   };
 
   return (
@@ -181,6 +182,9 @@ export default function Navigation({ changeText }: Props) {
                       className="text-xs font-medium hover:cursor-pointer hover:text-primary flex item-center gap-x-2"
                       key={link.nav}
                       href={link.nav}
+                      onClick={() => {
+                        setIsDrawer(false);
+                      }}
                     >
                       {link.icon}
                       <span>{link.title}</span>
@@ -190,7 +194,13 @@ export default function Navigation({ changeText }: Props) {
               );
             }
             return (
-              <Link key={item.trigger} href={item.nav || "/"}>
+              <Link
+                key={item.trigger}
+                onClick={() => {
+                  setIsDrawer(false);
+                }}
+                href={item.nav || "/"}
+              >
                 {item.trigger}
               </Link>
             );
