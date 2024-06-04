@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
 
 import { ListTab } from "@/types";
 import Button from "../common/button";
@@ -10,6 +10,12 @@ import CustomSlider from "../common/slider";
 import SliderOurMeetTeam from "../common/slider-our-meet-team";
 import Brand from "./Brand";
 import useMobile from "@/hooks/useMobile";
+import Link from "next/link";
+import Modal from "../common/modal";
+import { EnvelopeClosedIcon, MobileIcon, PersonIcon, SewingPinIcon } from "@radix-ui/react-icons";
+import FacebookIcon from "../common/svg-icons/facebook";
+import ZaloIcon from "../common/svg-icons/zalo";
+import { useState } from "react";
 
 const listService = [
   {
@@ -254,23 +260,42 @@ const SlideOurMeetTeam = [
 
 export default function HomePage() {
   const isMobile = useMobile();
+  const [isModal, setIsModal] = useState<boolean>(false);
+
+  const handleCloseModal = () => {
+    setIsModal(false);
+  };
   return (
     <div>
       <div className="w-full h-screen relative overflow-hidden">
-        <img className="aspect-[10/22] md:aspect-auto md:h-screen" src={isMobile ? "/assets/images/banner_ad_logistic_mobile.jpg" : "/assets/images/banner_ad_logistic.webp"} alt="Banner" />
+        <img
+          className="aspect-[10/22] md:aspect-auto md:h-screen"
+          src={
+            isMobile
+              ? "/assets/images/banner_ad_logistic_mobile.jpg"
+              : "/assets/images/banner_ad_logistic.webp"
+          }
+          alt="Banner"
+        />
         {/* overlay */}
         <div className=" absolute top-0 left-0 w-full h-full bg-black bg-opacity-60 z-10"></div>
         <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 space-y-6">
-          <h1 className="text-center text-white text-2xl md:text-6xl font-poppins font-black leading-10 md:leading-[80px] w-max">
-            Booking Our Passage <br /> To The Future
+          <h1 className="text-center text-white text-2xl md:text-6xl font-openSan font-black leading-10 md:leading-[80px] w-max">
+            ĐỒNG HÀNH CÙNG BẠN <br /> ĐẾN TƯƠNG LAI
           </h1>
           <div className="flex item-center justify-center">
-            <Button variant="primary" size={isMobile ? "sm" : "lg"}>
-              Booking now
+            <Button onClick={() => setIsModal(true)} variant="primary" size={isMobile ? "sm" : "lg"}>
+              Liên hệ ngay
             </Button>
-            <Button prevIcon={<TelegramIcon />} variant="chip" size={isMobile ? "sm" : "lg"}>
-              Join us on Telegram
-            </Button>
+            <Link target="_blank" href={"https://t.me/ngocanhlogistic"}>
+              <Button
+                prevIcon={<TelegramIcon />}
+                variant="chip"
+                size={isMobile ? "sm" : "lg"}
+              >
+                Tham gia cùng chúng tôi trên Telegram
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -344,8 +369,12 @@ export default function HomePage() {
         )}
         <div className="mx-auto md:max-w-screen-xl md:pt-32">
           <div>
-            <p className="text-sm md:text-base font-medium text-primary">TESTIMONIALS</p>
-            <h1 className="text-2xl md:text-[44px] font-black mt-2 md:mt-4">Trusted From My Clients</h1>
+            <p className="text-sm md:text-base font-medium text-primary">
+              TESTIMONIALS
+            </p>
+            <h1 className="text-2xl md:text-[44px] font-black mt-2 md:mt-4">
+              Trusted From My Clients
+            </h1>
           </div>
           <div className="mt-5 md:mt-20">
             <CustomSlider slides={slides} />
@@ -353,8 +382,12 @@ export default function HomePage() {
         </div>
       </div>
       <div className="py-10 md:pt-32 px-4 md:px-0 mx-auto md:max-w-screen-xl">
-        <p className="text-sm md:text-base font-medium text-primary">TRUSTED EXPERTS</p>
-        <h1 className="text-2xl md:text-[44px] font-black mt-2 md:mt-4 md:mb-8">Meet Our Team</h1>
+        <p className="text-sm md:text-base font-medium text-primary">
+          TRUSTED EXPERTS
+        </p>
+        <h1 className="text-2xl md:text-[44px] font-black mt-2 md:mt-4 md:mb-8">
+          Meet Our Team
+        </h1>
 
         <SliderOurMeetTeam slides={SlideOurMeetTeam} />
       </div>
@@ -363,6 +396,61 @@ export default function HomePage() {
           <Brand />
         </div>
       </div>
+
+      <Modal
+        isOpen={isModal}
+        onClose={handleCloseModal}
+        title={"Contact AD Logistic"}
+      >
+        <div className="flex flex-col justify-center items-center w-full">
+          <div className="space-y-2">
+            <div className="flex items-center gap-x-3">
+              <PersonIcon width={20} height={20} />
+              <div className="flex items-center space-x-2">
+                <h2 className="text-lg font-semibold">Phạm Ngọc Ánh</h2>
+                <p className="text-base text-secondary">(CEO AD Logistic)</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <MobileIcon />
+              <p>0984053166</p>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <SewingPinIcon />
+              <p>Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <EnvelopeClosedIcon />
+              <p>adlogisticglobal@gmail.com</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-x-20 mt-5">
+            <Link
+              target="_blank"
+              className="hover:text-primary"
+              href={"https://www.facebook.com/profile.php?id=61559645144546"}
+            >
+              <FacebookIcon width={24} height={24} />
+            </Link>
+            <Link
+              target="_blank"
+              className="hover:text-primary"
+              href={"https://zalo.me/0984053166"}
+            >
+              <ZaloIcon width={24} height={24} />
+            </Link>
+            <Link
+              target="_blank"
+              className="hover:text-primary"
+              href={"https://t.me/Cudtad"}
+            >
+              <TelegramIcon size={30} />
+            </Link>
+          </div>
+          <p className="text-base mt-8">Liên hệ ngay với chúng tôi để nhận được tư vấn và báo giá chi tiết</p>
+          <p className="text-base mt-1">AD Logistic - Đồng hành cùng thành công của bạn!</p>
+        </div>
+      </Modal>
     </div>
   );
 }

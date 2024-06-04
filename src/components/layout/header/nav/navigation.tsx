@@ -20,13 +20,21 @@ import {
 import {
   BackpackIcon,
   CubeIcon,
+  EnvelopeClosedIcon,
   HomeIcon,
+  MobileIcon,
+  PersonIcon,
   RocketIcon,
   RowsIcon,
+  SewingPinIcon,
 } from "@radix-ui/react-icons";
 import Button from "@/components/common/button";
 import Drawer from "@/components/common/drawer";
 import Collapsible from "@/components/common/collapsible";
+import Modal from "@/components/common/modal";
+import TelegramIcon from "@/components/common/svg-icons/TelegramIcon";
+import FacebookIcon from "@/components/common/svg-icons/facebook";
+import ZaloIcon from "@/components/common/svg-icons/zalo";
 
 const navigationLink = [
   {
@@ -72,6 +80,7 @@ export default function Navigation({ changeText }: Props) {
   const isMobile = useMobile();
   const [isDrawer, setIsDrawer] = useState<boolean>(false);
   const [isClient, setIsClient] = useState<boolean>(false);
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -83,12 +92,20 @@ export default function Navigation({ changeText }: Props) {
     setIsDrawer(true);
   };
 
+  const handleCloseModal = () => {
+    setIsModal(false);
+  };
+
   const handleClose = () => {
     setIsDrawer(false);
   };
 
   const handleNavClick = (nav: string) => {
-    router.push(nav);
+    if (nav === "/contact") {
+      setIsModal(true);
+    } else {
+      router.push(nav);
+    }
     setIsDrawer(false);
   };
 
@@ -207,6 +224,60 @@ export default function Navigation({ changeText }: Props) {
           })}
         </div>
       </Drawer>
+      <Modal
+        isOpen={isModal}
+        onClose={handleCloseModal}
+        title={"Contact AD Logistic"}
+      >
+        <div className="flex flex-col justify-center items-center w-full">
+          <div className="space-y-2">
+            <div className="flex items-center gap-x-3">
+              <PersonIcon width={20} height={20} />
+              <div className="flex items-center space-x-2">
+                <h2 className="text-lg font-semibold">Phạm Ngọc Ánh</h2>
+                <p className="text-base text-secondary">(CEO AD Logistic)</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <MobileIcon />
+              <p>0984053166</p>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <SewingPinIcon />
+              <p>Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <EnvelopeClosedIcon />
+              <p>adlogisticglobal@gmail.com</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-x-20 mt-5">
+            <Link
+              target="_blank"
+              className="hover:text-primary"
+              href={"https://www.facebook.com/profile.php?id=61559645144546"}
+            >
+              <FacebookIcon width={24} height={24} />
+            </Link>
+            <Link
+              target="_blank"
+              className="hover:text-primary"
+              href={"https://zalo.me/0984053166"}
+            >
+              <ZaloIcon width={24} height={24} />
+            </Link>
+            <Link
+              target="_blank"
+              className="hover:text-primary"
+              href={"https://t.me/Cudtad"}
+            >
+              <TelegramIcon size={30} />
+            </Link>
+          </div>
+          <p className="text-base mt-8">Liên hệ ngay với chúng tôi để nhận được tư vấn và báo giá chi tiết</p>
+          <p className="text-base mt-1">AD Logistic - Đồng hành cùng thành công của bạn!</p>
+        </div>
+      </Modal>
     </div>
   );
 }
