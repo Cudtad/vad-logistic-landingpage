@@ -383,7 +383,7 @@ export default function HomePage() {
               gia.
             </h1>
             <p className="text-secondary text-sm md:text-base font-medium mt-4 md:mt-8">
-              Với slogan "AD: Assurance Delivery", chúng tôi tự hào mang đến cho
+              Với slogan `AD: Assurance Delivery`, chúng tôi tự hào mang đến cho
               quý khách hàng dịch vụ vận tải đáng tin cậy, an toàn và hiệu quả,
               khẳng định cam kết luôn đảm bảo chất lượng trong từng chặng đường.
             </p>
