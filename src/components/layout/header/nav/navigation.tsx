@@ -39,6 +39,7 @@ import ZaloIcon from "@/components/common/svg-icons/zalo";
 const navigationLink = [
   {
     trigger: "Service",
+    label: "Dịch vụ",
     content: [
       {
         title: "Vận chuyển 2 chiều Việt Nam & quốc tế",
@@ -46,9 +47,9 @@ const navigationLink = [
         nav: "/service/delivery",
       },
       {
-        title: "Giải pháp Fullfillment cho các doanh nghiệp",
+        title: "Giải pháp Fulfillment cho các doanh nghiệp",
         icon: <CubeIcon />,
-        nav: "/service/fullfillment",
+        nav: "/service/fulfillment",
       },
       {
         title: "Cho thuê kho bãi, nhân sự tại 200 quốc gia",
@@ -64,10 +65,12 @@ const navigationLink = [
   },
   {
     trigger: "About",
+    label: "Về chúng tôi",
     nav: "/about",
   },
   {
     trigger: "Contact",
+    label: "Liên hệ",
     nav: "/contact",
   },
 ];
@@ -153,7 +156,7 @@ export default function Navigation({ changeText }: Props) {
                               "text-black": changeText,
                             })}
                           >
-                            {item.trigger}
+                            {item.label}
                           </NavigationMenuTrigger>
                           <NavigationMenuContent>
                             {item?.content.map((item) => (
@@ -174,7 +177,7 @@ export default function Navigation({ changeText }: Props) {
                           })}
                           onClick={() => handleNavClick(item.nav || "/")}
                         >
-                          {item.trigger}
+                          {item.label}
                         </NavigationMenuLink>
                       )}
                     </NavigationMenuItem>
@@ -193,7 +196,7 @@ export default function Navigation({ changeText }: Props) {
           {navigationLink.map((item) => {
             if (item?.content) {
               return (
-                <Collapsible key={item.trigger} title={item.trigger}>
+                <Collapsible key={item.trigger} title={item.label}>
                   {item.content.map((link) => (
                     <Link
                       className="text-xs font-medium hover:cursor-pointer hover:text-primary flex item-center gap-x-2"
@@ -218,7 +221,7 @@ export default function Navigation({ changeText }: Props) {
                 }}
                 href={item.nav || "/"}
               >
-                {item.trigger}
+                {item.label}
               </Link>
             );
           })}
@@ -227,7 +230,7 @@ export default function Navigation({ changeText }: Props) {
       <Modal
         isOpen={isModal}
         onClose={handleCloseModal}
-        title={"Contact AD Logistic"}
+        title={"Thông tin liên hệ"}
       >
         <div className="flex flex-col justify-center items-center w-full">
           <div className="space-y-2">
@@ -235,7 +238,7 @@ export default function Navigation({ changeText }: Props) {
               <PersonIcon width={20} height={20} />
               <div className="flex items-center space-x-2">
                 <h2 className="text-lg font-semibold">Phạm Ngọc Ánh</h2>
-                <p className="text-base text-secondary">(CEO AD Logistic)</p>
+                <p className="text-base text-secondary">(CEO AD Logistic Global)</p>
               </div>
             </div>
             <div className="flex items-center gap-x-3">
@@ -269,7 +272,7 @@ export default function Navigation({ changeText }: Props) {
             <Link
               target="_blank"
               className="hover:text-primary"
-              href={"https://t.me/Cudtad"}
+              href={"https://t.me/ngocanhlogistic"}
             >
               <TelegramIcon size={30} />
             </Link>

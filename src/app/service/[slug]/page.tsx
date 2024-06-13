@@ -4,7 +4,7 @@ export default function index({
   params,
 }: {
   params: {
-    slug: "delivery" | "fullfillment" | "warehouse" | "order";
+    slug: "delivery" | "fulfillment" | "warehouse" | "order";
   };
 }) {
   return <ServicePage slug={params.slug} />;

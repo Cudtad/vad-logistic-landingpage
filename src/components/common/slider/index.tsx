@@ -7,7 +7,7 @@ interface Slide {
   id: number;
   content: {
     comment: string;
-    imageAvatar: string;
+    // imageAvatar: string;
     role: string;
     name: string;
   };
@@ -148,13 +148,13 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ slides }) => {
             <div>
               <p className="text-base font-medium text-secondary">{`"${slide.content.comment}"`}</p>
               <div className="mt-5 flex items-center gap-x-4">
-                <Image
+                {/* <Image
                   width={60}
                   height={60}
                   src={slide.content.imageAvatar}
                   alt="Avatar"
                   className="rounded-full"
-                />
+                /> */}
                 <div>
                   <h3 className="text-base font-bold">{slide.content.name}</h3>
                   <p className="text-base font-medium text-secondary mt-2">{slide.content.role}</p>

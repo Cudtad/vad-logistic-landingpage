@@ -91,7 +91,7 @@ const content = {
       </div>
     ),
   },
-  fullfillment: {
+  fulfillment: {
     title: "Giới thiệu về dịch vụ Fulfillment của AD Logistic",
     description: (
       <div>
@@ -360,7 +360,7 @@ const content = {
 export default function ServicePage({
     slug,
   }: {
-    slug: "delivery" | "fullfillment" | "warehouse" | "order";
+    slug: "delivery" | "fulfillment" | "warehouse" | "order";
   }) {
     const isMobile = useMobile()
     return (
@@ -373,9 +373,9 @@ export default function ServicePage({
         <div className="mx-auto md:max-w-screen-xl">
           <div className="my-5 md:py-10 px-4 md:px-0">
             <h1 className="text-center text-xl md:text-3xl font-black">
-              {content[slug].title}
+              {content[slug]?.title}
             </h1>
-            <div className="mt-5">{content[slug].description}</div>
+            <div className="mt-5">{content[slug]?.description}</div>
             <p className="mt-10 font-semibold">
               Liên hệ ngay với chúng tôi để nhận được tư vấn và báo giá chi tiết.
               AD Logistic - Đồng hành cùng thành công của bạn!
