@@ -1,32 +1,45 @@
-"use client"
+"use client";
 
 import Button from "@/components/common/button";
 import Input from "@/components/common/input";
+import ModalContact from "@/components/common/modal-contact";
 import useMobile from "@/hooks/useMobile";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const QuickLink = [
   {
-    name: "Home",
+    name: "Trang chủ",
     link: "/",
   },
   {
-    name: "Service",
-    link: "/service",
+    name: "Dịch vụ",
+    link: "/service/fulfillment",
   },
   {
-    name: "About",
+    name: "Về chúng tôi",
     link: "/about",
   },
   {
-    name: "Contact",
+    name: "Liên hệ",
     link: "/contact",
   },
 ];
 
 export default function Footer() {
   const isMobile = useMobile();
+
+  const [isModal, setIsModal] = useState<boolean>(false);
+
+  const handleCloseModal = () => {
+    setIsModal(false);
+  };
+
+  const handleShowModal = () => {
+    setIsModal(true);
+  };
+
   return (
     <div className="bg-gray-footer pt-10 md:pt-20 pb-4 px-4 md:px-0 text-white">
       <div className="mx-auto md:max-w-screen-xl">
@@ -44,44 +57,58 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm font-medium text-gray mt-2">
-              With a search first mentality across digital marketing, our
-              passionate consulting team is hands-on to help conquer anything
+              {`Với slogan "AD: Assurance Delivery", chúng tôi tự hào mang đến cho
+              quý khách hàng dịch vụ vận tải đáng tin cậy, an toàn và hiệu quả,
+              khẳng định cam kết luôn đảm bảo chất lượng trong từng chặng đường.`}
             </p>
           </div>
           <div className="md:pl-8">
-            <h1 className=" text-lg font-bold">Quick Links</h1>
-            <div className="flex flex-col mt-2 text-gray gap-y-1">
-              {QuickLink.map((item) => (
-                <Link
-                  className="hover:text-primary"
-                  key={item.link}
-                  href={item.link}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            <h1 className=" text-lg font-bold">Truy cập nhanh</h1>
+            <div className="flex flex-col items-start mt-2 text-gray gap-y-1">
+              {QuickLink.map((item) => {
+                if (item.link === "/contact") {
+                  return (
+                    <button
+                      className="hover:text-primary"
+                      key={item.link}
+                      onClick={handleShowModal}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                }
+                return (
+                  <Link
+                    className="hover:text-primary"
+                    key={item.link}
+                    href={item.link}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div>
-            <h1 className=" text-lg font-bold">Contact</h1>
+            <h1 className=" text-lg font-bold">Liên hệ</h1>
             <div className="mt-2 text-gray space-y-1">
-              <p>Address: Dai Mo Street, Nam Tu Liem District, Ha Noi</p>
+              <p>Địa chỉ: Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
               <p>Email: adlogisticglobal@gmail.com</p>
-              <div className=" no-underline">Phone: 0984053166</div>
+              <div className=" no-underline">Điện thoại: 0984053166</div>
             </div>
           </div>
           <div>
-            <h1 className=" text-lg font-bold">Newsletter</h1>
+            <h1 className=" text-lg font-bold">Bản tin</h1>
             <p className="text-base font-medium text-gray mt-2">
-              We are not spammers.!
+              Chúng tôi không phải là người gửi thư rác.!
             </p>
             <div className="mt-8">
-              <Input placeholder="Email Address" size={"lg"} />
-              <p className="textsm md:text-base font-medium text-primary mt-4">
+              <Input placeholder="Địa chỉ email" size={"lg"} />
+              {/* <p className="textsm md:text-base font-medium text-primary mt-4">
                 Please complete this required field.
-              </p>
+              </p> */}
               <Button className="font-bold mt-8" size={isMobile ? "sm" : "lg"}>
-                SUBSCRIBE
+                Đăng ký
               </Button>
             </div>
           </div>
@@ -91,6 +118,7 @@ export default function Footer() {
         © 2024 <span className="text-primary">AD Logistic</span> Made with by{" "}
         <span className="text-primary">Cudtad</span>
       </div>
+      <ModalContact isModal={isModal} handleCloseModal={handleCloseModal} />
     </div>
   );
 }

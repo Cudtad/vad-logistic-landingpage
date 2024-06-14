@@ -29,7 +29,7 @@ export default function ProcessTabs({
   return (
     <Tabs defaultValue={tabs} onValueChange={(value) => setTabs(value)} className="w-full">
       <div className="flex flex-col lg:flex-row items-start justify-between lg:border-b lg:border-divider-secondary bg-transparent">
-        <TabsList className="grid grid-cols-2 gap-x-16 md:grid-cols-4 md:gap-x-52">
+        <TabsList className="grid grid-cols-2 gap-x-5 md:grid-cols-4 md:gap-x-52">
           {listTab.map((tab) => (
             <TabsTrigger
               className={clsx(

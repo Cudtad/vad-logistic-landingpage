@@ -7,28 +7,13 @@ import TelegramIcon from "../common/svg-icons/TelegramIcon";
 import CardService from "./CardService";
 import ProcessTabs from "./ProcessTabs";
 import CustomSlider from "../common/slider";
-import SliderOurMeetTeam from "../common/slider-our-meet-team";
 import Brand from "./Brand";
 import useMobile from "@/hooks/useMobile";
 import Link from "next/link";
-import Modal from "../common/modal";
-import {
-  EnvelopeClosedIcon,
-  MobileIcon,
-  PersonIcon,
-  SewingPinIcon,
-} from "@radix-ui/react-icons";
-import FacebookIcon from "../common/svg-icons/facebook";
-import ZaloIcon from "../common/svg-icons/zalo";
 import { useState } from "react";
+import ModalContact from "../common/modal-contact";
 
 const listService = [
-  // {
-  //   imageFeature: "/assets/images/icons/icon_ship.webp",
-  //   title: "Cargo ship",
-  //   description:
-  //     "Nullam varius porttitor augue id rutrum. Duis vehicula magna at magnaAenean convallis",
-  // },
   {
     imageFeature: "/assets/images/icons/icon_airplane.webp",
     title: "Vận chuyển 2 chiều Việt Nam - Quốc tế",
@@ -57,12 +42,6 @@ const listService = [
       "Chào mừng quý khách đến với AD Logistic, chuyên gia hàng đầu trong lĩnh vực logistics và mua hàng hộ. Với sứ mệnh giúp quý khách tiếp cận và sở hữu những sản phẩm yêu thích từ khắp nơi trên thế giới, chúng tôi tự hào mang đến dịch vụ mua hàng hộ nhanh chóng, an toàn và tiện lợi.",
     link: "/service/order",
   },
-  // {
-  //   imageFeature: "/assets/images/icons/icon_ship_van.webp",
-  //   title: "Shipping van",
-  //   description:
-  //     "Nullam varius porttitor augue id rutrum. Duis vehicula magna at magnaAenean convallis",
-  // },
 ];
 
 const ListTabs: ListTab[] = [
@@ -383,9 +362,9 @@ export default function HomePage() {
               gia.
             </h1>
             <p className="text-secondary text-sm md:text-base font-medium mt-4 md:mt-8">
-              Với slogan `AD: Assurance Delivery`, chúng tôi tự hào mang đến cho
+              {`Với slogan "AD: Assurance Delivery", chúng tôi tự hào mang đến cho
               quý khách hàng dịch vụ vận tải đáng tin cậy, an toàn và hiệu quả,
-              khẳng định cam kết luôn đảm bảo chất lượng trong từng chặng đường.
+              khẳng định cam kết luôn đảm bảo chất lượng trong từng chặng đường.`}
             </p>
             <Link href={"/about"}>
               <Button
@@ -446,67 +425,7 @@ export default function HomePage() {
           <Brand />
         </div>
       </div>
-
-      <Modal
-        isOpen={isModal}
-        onClose={handleCloseModal}
-        title={"Thông tin liên hệ"}
-      >
-        <div className="flex flex-col justify-center items-center w-full">
-          <div className="space-y-2">
-            <div className="flex items-center gap-x-3">
-              <PersonIcon width={20} height={20} />
-              <div className="flex items-center space-x-2">
-                <h2 className="text-lg font-semibold">Phạm Ngọc Ánh</h2>
-                <p className="text-base text-secondary">
-                  (CEO AD Logistic Global)
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-x-3">
-              <MobileIcon />
-              <p>0984053166</p>
-            </div>
-            <div className="flex items-center gap-x-3">
-              <SewingPinIcon />
-              <p>Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
-            </div>
-            <div className="flex items-center gap-x-3">
-              <EnvelopeClosedIcon />
-              <p>adlogisticglobal@gmail.com</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-x-20 mt-5">
-            <Link
-              target="_blank"
-              className="hover:text-primary"
-              href={"https://www.facebook.com/profile.php?id=61559645144546"}
-            >
-              <FacebookIcon width={24} height={24} />
-            </Link>
-            <Link
-              target="_blank"
-              className="hover:text-primary"
-              href={"https://zalo.me/0984053166"}
-            >
-              <ZaloIcon width={24} height={24} />
-            </Link>
-            <Link
-              target="_blank"
-              className="hover:text-primary"
-              href={"https://t.me/ngocanhlogistic"}
-            >
-              <TelegramIcon size={30} />
-            </Link>
-          </div>
-          <p className="text-base mt-8">
-            Liên hệ ngay với chúng tôi để nhận được tư vấn và báo giá chi tiết
-          </p>
-          <p className="text-base mt-1">
-            AD Logistic - Đồng hành cùng thành công của bạn!
-          </p>
-        </div>
-      </Modal>
+      <ModalContact isModal={isModal} handleCloseModal={handleCloseModal} />
     </div>
   );
 }
