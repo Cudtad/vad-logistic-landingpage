@@ -25,9 +25,21 @@ const titanOne = Titan_One({
   weight: "400",
 });
 
-export const metadata: Metadata = {
-  title: "AD Logistic",
-  description: "AD Logistic",
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "AD Logistic Global | Giải Pháp Logistic Toàn Diện Cho Doanh Nghiệp",
+    description:
+      "AD Logistic Global cung cấp giải pháp logistics toàn diện, từ kho bãi, phân phối đến vận tải quốc tế. Chúng tôi sử dụng công nghệ tiên tiến và mạng lưới đối tác rộng khắp để đảm bảo hiệu quả và tiết kiệm cho doanh nghiệp của bạn.",
+    themeColor: "dark",
+    viewport: "width=device-width, initial-scale=1",
+    colorScheme: "light dark",
+    twitter: {
+      site: "@adlogisticglobal",
+    },
+    openGraph: {
+      siteName: "AD Logistic Global",
+    },
+  };
 };
 
 export default function RootLayout({
