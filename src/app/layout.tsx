@@ -27,6 +27,7 @@ const titanOne = Titan_One({
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
+    metadataBase: new URL("https://adlogisticgb.com/"),
     title: "AD Logistic Global | Dịch vụ logistics quốc tế tại Việt Nam",
     description:
       "AD Logistic Global cung cấp giải pháp logistics từ kho bãi, phân phối đến vận tải quốc tế. Công nghệ tiên tiến và đối tác rộng khắp đảm bảo hiệu quả, tiết kiệm cho doanh nghiệp",
@@ -49,10 +50,10 @@ export default function RootLayout({
   return (
     <html lang={"en"} className={poppins.variable}>
       <head>
-        <link rel='icon' href='/favicon.ico' sizes='any' />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta
-          name='google-site-verification'
-          content='6eSfc-wsGqUq9bT-cZS89NBJDFVs6prKFtLOHGtSu9A'
+          name="google-site-verification"
+          content="6eSfc-wsGqUq9bT-cZS89NBJDFVs6prKFtLOHGtSu9A"
         />
       </head>
       <body
