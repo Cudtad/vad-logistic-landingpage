@@ -38,7 +38,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
     },
     openGraph: {
       siteName: "AD Logistic Global",
-      images: '/assets/images/logo/logo_ad_logistic.png'
     },
   };
 };
