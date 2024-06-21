@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+
+.zalo-chat-widget {
+  position: fixed !important;
+  bottom: 8% !important;
+  left: 8% !important;
+}
