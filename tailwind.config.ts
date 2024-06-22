@@ -46,8 +46,8 @@ module.exports = {
           '20%, 40%, 60%, 80%': { transform: 'translateX(3px)' },
         },
         'fade-in': {
-          '0%': { opacity: '0', transform: 'translateX(50%)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
+          '0%': { opacity: '0', transform: 'translate(50%, -50%)' },
+          '100%': { opacity: '1', transform: 'translate(0, -50%)' },
         },
         'fade-out': {
           '0%': { opacity: '1', transform: 'translateX(0)' },

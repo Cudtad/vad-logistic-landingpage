@@ -34,7 +34,7 @@ const ZaloChat = () => {
       setTimeout(() => {
         zaloDiv.classList.remove('animate-shake');
       }, 500); // Duration of the shake animation
-    }, 5000); // Interval time
+    }, 25000); // Interval time
 
     return () => {
       clearInterval(intervalId);
