@@ -12,6 +12,11 @@ import useMobile from "@/hooks/useMobile";
 import Link from "next/link";
 import { useState } from "react";
 import ModalContact from "../common/modal-contact";
+import BoxCheckIcon from "../common/svg-icons/BoxCheckIcon";
+import CustomerIcon from "../common/svg-icons/CustomerIcon";
+import ChartArrowGrowIcon from "../common/svg-icons/ChartArrowGrowIcon";
+import CountNumber from "../common/count-number";
+import PoolLogistic from "./PoolLogistic";
 
 const listService = [
   {
@@ -247,7 +252,6 @@ const slides = [
       // imageAvatar: "/assets/images/home/avatar.webp",
     },
   },
-  
 ];
 
 const SlideOurMeetTeam = [
@@ -330,6 +334,27 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      <div className="py-10 md:py-16 px-4 md:px-0 bg-gray-300">
+        <div className=" mx-auto md:max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-y-5">
+          <PoolLogistic
+            icon={<BoxCheckIcon size={24} />}
+            value={868}
+            title="Đơn hàng giao thành công"
+          />
+          <PoolLogistic
+            icon={<CustomerIcon size={24} />}
+            value={342}
+            title="Khách hàng và đối tác"
+          />
+          <PoolLogistic
+            icon={<ChartArrowGrowIcon size={24} />}
+            value={120}
+            title="Tốc độ tăng trưởng theo năm"
+            suffix="%"
+          />
+        </div>
+      </div>
+
       <div className="py-10 md:pt-32 md:pb-16 px-4 md:px-0">
         <div className="mx-auto md:max-w-screen-xl grid grid-cols-1 md:grid-cols-2 md:gap-x-10 gap-y-16">
           {listService.map((item) => {
