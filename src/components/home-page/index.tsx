@@ -337,17 +337,17 @@ export default function HomePage() {
       <div className="py-10 md:py-16 px-4 md:px-0 bg-gray-300">
         <div className=" mx-auto md:max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-y-5">
           <PoolLogistic
-            icon={<BoxCheckIcon size={24} />}
+            icon={<BoxCheckIcon size={20} />}
             value={868}
             title="Đơn hàng giao thành công"
           />
           <PoolLogistic
-            icon={<CustomerIcon size={24} />}
+            icon={<CustomerIcon size={20} />}
             value={342}
             title="Khách hàng và đối tác"
           />
           <PoolLogistic
-            icon={<ChartArrowGrowIcon size={24} />}
+            icon={<ChartArrowGrowIcon size={20} />}
             value={120}
             title="Tốc độ tăng trưởng theo năm"
             suffix="%"

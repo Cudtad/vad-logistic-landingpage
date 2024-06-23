@@ -47,7 +47,7 @@ const CountNumber: React.FC<CountNumberProps> = ({ value, suffix }) => {
     }
   }, [hasStarted, value]);
 
-  return <div className='text-xl md:text-2xl font-semibold text-primary' ref={countRef}>{count}{suffix}</div>;
+  return <div className='text-xl md:text-3xl font-semibold text-primary' ref={countRef}>{count}{suffix}</div>;
 };
 
 export default CountNumber;
