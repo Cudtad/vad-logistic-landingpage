@@ -338,7 +338,7 @@ export default function HomePage() {
         <div className=" mx-auto md:max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-y-5">
           <PoolLogistic
             icon={<BoxCheckIcon size={20} />}
-            value={3680}
+            value={6680}
             title="Đơn hàng giao thành công"
           />
           <PoolLogistic
