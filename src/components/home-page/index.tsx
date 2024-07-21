@@ -23,7 +23,7 @@ const listService = [
     imageFeature: "/assets/images/icons/icon_airplane.webp",
     title: "Vận chuyển 2 chiều Việt Nam - Quốc tế",
     description:
-      "Với nhiều năm kinh nghiệm trong lĩnh vực logistics, AD Logistic tự hào mang đến cho quý khách hàng dịch vụ vận chuyển hai chiều Việt Nam - Quốc Tế an toàn, nhanh chóng và hiệu quả.",
+      "Với nhiều năm kinh nghiệm trong lĩnh vực logistics, VAD Logistic tự hào mang đến cho quý khách hàng dịch vụ vận chuyển hai chiều Việt Nam - Quốc Tế an toàn, nhanh chóng và hiệu quả.",
     link: "/service/delivery",
   },
   {
@@ -44,7 +44,7 @@ const listService = [
     imageFeature: "/assets/images/icons/icon_order.webp",
     title: "Mua hàng hộ",
     description:
-      "Chào mừng quý khách đến với AD Logistic, chuyên gia hàng đầu trong lĩnh vực logistics và mua hàng hộ. Với sứ mệnh giúp quý khách tiếp cận và sở hữu những sản phẩm yêu thích từ khắp nơi trên thế giới, chúng tôi tự hào mang đến dịch vụ mua hàng hộ nhanh chóng, an toàn và tiện lợi.",
+      "Chào mừng quý khách đến với VAD Logistic, chuyên gia hàng đầu trong lĩnh vực logistics và mua hàng hộ. Với sứ mệnh giúp quý khách tiếp cận và sở hữu những sản phẩm yêu thích từ khắp nơi trên thế giới, chúng tôi tự hào mang đến dịch vụ mua hàng hộ nhanh chóng, an toàn và tiện lợi.",
     link: "/service/order",
   },
 ];
@@ -156,7 +156,7 @@ const slides = [
     id: 1,
     content: {
       comment:
-        "Anh đã từng hợp tác với rất nhiều bên để vận chuyển hàng Fulfillment nhưng hiện tại anh đánh giá AD LOGISTIC khá cao. Tốc độ làm việc chuyên nghiệp, các bạn sale rất tận tâm",
+        "Anh đã từng hợp tác với rất nhiều bên để vận chuyển hàng Fulfillment nhưng hiện tại anh đánh giá VAD LOGISTIC khá cao. Tốc độ làm việc chuyên nghiệp, các bạn sale rất tận tâm",
       name: "Anh Phong",
       role: "Chủ shop quần áo",
       // imageAvatar: "/assets/images/home/avatar.webp",
@@ -206,7 +206,7 @@ const slides = [
     id: 6,
     content: {
       comment:
-        "Anh đã từng hợp tác với rất nhiều bên để vận chuyển hàng Fulfillment nhưng hiện tại anh đánh giá AD LOGISTIC khá cao. Tốc độ làm việc chuyên nghiệp, các bạn sale rất tận tâm",
+        "Anh đã từng hợp tác với rất nhiều bên để vận chuyển hàng Fulfillment nhưng hiện tại anh đánh giá VAD LOGISTIC khá cao. Tốc độ làm việc chuyên nghiệp, các bạn sale rất tận tâm",
       name: "Anh Phong",
       role: "Chủ shop quần áo",
       // imageAvatar: "/assets/images/home/avatar.webp",
@@ -383,11 +383,11 @@ export default function HomePage() {
               INTERNATIONAL LOGISTICS
             </p>
             <h1 className="text-2xl md:text-4xl font-black mt-2">
-              AD LOGISTIC - Công ty hàng đầu cung cấp dịch vụ vận tải đa quốc
+              VAD LOGISTIC - Công ty hàng đầu cung cấp dịch vụ vận tải đa quốc
               gia.
             </h1>
             <p className="text-secondary text-sm md:text-base font-medium mt-4 md:mt-8">
-              {`Với slogan "AD: Assurance Delivery", chúng tôi tự hào mang đến cho
+              {`Với slogan "VAD: Visionary - Assurance - Development", chúng tôi tự hào mang đến cho
               quý khách hàng dịch vụ vận tải đáng tin cậy, an toàn và hiệu quả,
               khẳng định cam kết luôn đảm bảo chất lượng trong từng chặng đường.`}
             </p>

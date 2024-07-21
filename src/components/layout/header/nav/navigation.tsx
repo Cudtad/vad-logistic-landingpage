@@ -118,13 +118,13 @@ export default function Navigation({ changeText }: Props) {
         className="flex items-center justify-center gap-x-1"
       >
         <Image
-          src="/assets/images/logo/logo_ad_logistic_removebg.png"
+          src="/assets/images/logo/logo_vadlogistic.png"
           alt="Logo"
           width={50}
           height={50}
         />
         <span className="text-xl md:text-4xl font-medium font-titanOne text-primary bg-gradient-to-r from-[#9d6d16] to-[#603000] text-transparent bg-clip-text">
-          AD LOGISTIC
+          VAD LOGISTIC GLOBAL
         </span>
       </Link>
       {isMobile ? (
@@ -212,7 +212,7 @@ export default function Navigation({ changeText }: Props) {
                   key={item.trigger}
                   onClick={() => {
                     setIsModal(true);
-                    setIsDrawer(false)
+                    setIsDrawer(false);
                   }}
                 >
                   {item.label}

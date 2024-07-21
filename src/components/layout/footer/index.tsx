@@ -47,17 +47,17 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-x-2">
               <Image
-                src="/assets/images/logo/logo_ad_logistic_removebg.png"
+                src="/assets/images/logo/logo_vadlogistic.png"
                 alt="Logo"
                 width={30}
                 height={30}
               />
-              <span className=" text-2xl font-medium font-titanOne text-primary bg-gradient-to-r from-[#9d6d16] to-[#603000] text-transparent bg-clip-text">
-                AD LOGISTIC
+              <span className=" text-xl font-medium font-titanOne text-primary bg-gradient-to-r from-[#9d6d16] to-[#603000] text-transparent bg-clip-text">
+                VAD LOGISTIC GLOBAL
               </span>
             </div>
             <p className="text-sm font-medium text-gray mt-2">
-              {`Với slogan "AD: Assurance Delivery", chúng tôi tự hào mang đến cho
+              {`Với slogan "VAD: Visionary - Assurance - Development", chúng tôi tự hào mang đến cho
               quý khách hàng dịch vụ vận tải đáng tin cậy, an toàn và hiệu quả,
               khẳng định cam kết luôn đảm bảo chất lượng trong từng chặng đường.`}
             </p>
@@ -92,8 +92,11 @@ export default function Footer() {
           <div>
             <h1 className=" text-lg font-bold">Liên hệ</h1>
             <div className="mt-2 text-gray space-y-1">
-              <p>Địa chỉ: Đại Mỗ, Nam Từ Liêm, Hà Nội</p>
-              <p>Email: adlogisticglobal@gmail.com</p>
+              <p>
+                Số 9 Duy Tân, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội,
+                Hanoi, Vietnam
+              </p>
+              <p>Email: vadlogisticglobal@gmail.com</p>
               <div className=" no-underline">Điện thoại: 0984053166</div>
             </div>
           </div>
@@ -115,7 +118,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-sm font-semibold text-center mt-20">
-        © 2024 <span className="text-primary">AD Logistic</span> Made with by{" "}
+        © 2024 <span className="text-primary">VAD Logistic</span> Made with by{" "}
         <span className="text-primary">Cudtad</span>
       </div>
       <ModalContact isModal={isModal} handleCloseModal={handleCloseModal} />

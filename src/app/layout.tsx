@@ -27,18 +27,18 @@ const titanOne = Titan_One({
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
-    metadataBase: new URL("https://adlogisticgb.com/"),
-    title: "AD Logistic Global | Dịch vụ logistics quốc tế tại Việt Nam",
+    metadataBase: new URL("https://vadlogisticgb.com/"),
+    title: "VAD Logistic Global | Dịch vụ logistics quốc tế tại Việt Nam",
     description:
-      "AD Logistic Global cung cấp giải pháp logistics từ kho bãi, phân phối đến vận tải quốc tế. Công nghệ tiên tiến và đối tác rộng khắp đảm bảo hiệu quả, tiết kiệm cho doanh nghiệp",
+      "VAD Logistic Global cung cấp giải pháp logistics từ kho bãi, phân phối đến vận tải quốc tế. Công nghệ tiên tiến và đối tác rộng khắp đảm bảo hiệu quả, tiết kiệm cho doanh nghiệp",
     themeColor: "dark",
     viewport: "width=device-width, initial-scale=1",
     colorScheme: "light dark",
     twitter: {
-      site: "@adlogisticglobal",
+      site: "@vadlogisticglobal",
     },
     openGraph: {
-      siteName: "AD Logistic Global",
+      siteName: "VAD Logistic Global",
     },
   };
 };
