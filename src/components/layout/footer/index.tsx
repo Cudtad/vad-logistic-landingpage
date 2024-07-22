@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/common/button";
+import GoogleMapEmbed from "@/components/common/google-map-embed";
 import Input from "@/components/common/input";
 import ModalContact from "@/components/common/modal-contact";
 import useMobile from "@/hooks/useMobile";
@@ -101,19 +102,17 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h1 className=" text-lg font-bold">Bản tin</h1>
+            <GoogleMapEmbed />
+            {/* <h1 className=" text-lg font-bold">Bản tin</h1>
             <p className="text-base font-medium text-gray mt-2">
               Chúng tôi không phải là người gửi thư rác.!
             </p>
             <div className="mt-8">
               <Input placeholder="Địa chỉ email" size={"lg"} />
-              {/* <p className="textsm md:text-base font-medium text-primary mt-4">
-                Please complete this required field.
-              </p> */}
               <Button className="font-bold mt-8" size={isMobile ? "sm" : "lg"}>
                 Đăng ký
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
