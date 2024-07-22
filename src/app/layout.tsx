@@ -53,7 +53,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta
           name="google-site-verification"
-          content="6eSfc-wsGqUq9bT-cZS89NBJDFVs6prKFtLOHGtSu9A"
+          content="dDRXy3mPun9gMUdoXBwRgKRX5Pm-M_hMDT0tytKXSck"
         />
       </head>
       <body
