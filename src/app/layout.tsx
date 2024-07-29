@@ -27,7 +27,7 @@ const titanOne = Titan_One({
 
 export const generateMetadata = async (): Promise<Metadata> => {
   return {
-    metadataBase: new URL("https://vadlogisticgb.com/"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_URL as string),
     title: "VAD Logistic Global | Dịch vụ logistics quốc tế tại Việt Nam",
     description:
       "VAD Logistic Global cung cấp giải pháp logistics từ kho bãi, phân phối đến vận tải quốc tế. Công nghệ tiên tiến và đối tác rộng khắp đảm bảo hiệu quả, tiết kiệm cho doanh nghiệp",
@@ -51,6 +51,7 @@ export default function RootLayout({
     <html lang={"en"} className={poppins.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_URL} />
         <meta
           name="google-site-verification"
           content="dDRXy3mPun9gMUdoXBwRgKRX5Pm-M_hMDT0tytKXSck"

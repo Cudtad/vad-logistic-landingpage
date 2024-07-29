@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://vadlogisticgb.com/";
+  const baseUrl = process.env.NEXT_PUBLIC_URL;
   const paths = [
     "about",
     "service/delivery",
